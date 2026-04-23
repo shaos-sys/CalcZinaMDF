@@ -4,8 +4,13 @@ public class App {
      public static void main(String[] args) throws Exception {
 
      Scanner scan = new Scanner(System.in);   
-     Precificar3mmMDF mdf3mm = new Precificar3mmMDF();
-     Precificar6mmMDF mdf6mm = new Precificar6mmMDF();
+
+             PrecificarMDF mdf3mm = new PrecificarMDF();
+             mdf3mm.valorMetroQuadrado = 128.57;
+
+             PrecificarMDF mdf6mm = new PrecificarMDF();
+             mdf6mm.valorMetroQuadrado = 156.22;
+
             
      System.out.println("====== MENU ======");
      System.out.println("1. Definir medidas.");
@@ -39,7 +44,7 @@ public class App {
                          case 1:
                          tipoMDF = 1;
                          System.out.println("====== MDF DE 3mm ======");
-                         mdf3mm.definirTamanhos3mm(scan);
+                         mdf3mm.definirTamanhos(scan);
                          System.out.print("Digite 3 para voltar: ");
                          submenu = scan.nextInt();                         
                          break;
@@ -47,7 +52,7 @@ public class App {
                            case 2:
                            tipoMDF = 2;
                            System.out.println("====== MDF DE 6mm ======");
-                           mdf6mm.definirTamanhos6mm(scan); 
+                           mdf6mm.definirTamanhos(scan); 
                            System.out.print("Digite 3 para voltar: ");
                            submenu = scan.nextInt();                                                        
                            break;
@@ -58,8 +63,8 @@ public class App {
                      submenu = scan.nextInt();
                      break;
 
-                      } // fim switch case tipoMDF                    
-                     } // fim while tipoMDF
+                      } // fim switch case submenu                   
+                     } // fim while submenu
 
              System.out.println("===================");         
              System.out.println("1. Definir medidas.");
@@ -74,13 +79,13 @@ public class App {
                  System.out.println("====== PREÇO ======");
 
                  if (tipoMDF == 1) {
-                 mdf3mm.precificar3mm();
+                 mdf3mm.precificar();
                 
                    } else if (tipoMDF == 2) {
-                   mdf6mm.precificar6mm();
-
+                   mdf6mm.precificar();
+                     
                      } else {
-                      System.out.println("Escolha o tipo do MDF!");
+                     System.out.println("Escolha o tipo do MDF!");
                      }
 
                  System.out.println("===================");    

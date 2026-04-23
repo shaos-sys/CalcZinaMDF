@@ -1,13 +1,13 @@
  import java.util.Scanner;
 
- public class Precificar3mmMDF {
+ public class PrecificarMDF {
         
  double altura;
  double comp;
  double area;
- double valorMetroQuadrado = 128.57;
+ double valorMetroQuadrado;
 
-     void definirTamanhos3mm (Scanner scan){
+     void definirTamanhos (Scanner scan){
                 
          System.out.print("Altura (em mm): ");
          this.altura = scan.nextDouble();
@@ -19,15 +19,23 @@
              double conversaoComp = comp / 1000;
 
                  this.area = conversaoAlt * conversaoComp;
-                 System.out.println("================");
-                 System.out.printf("Área em m²: %.2f\n" , area);    
-                 System.out.println("================");
-     } 
 
-     void precificar3mm (){
+                  if (this.area == 0) {
+
+                  System.out.println("ERRO: Área não pode ser igual a 0.");
+
+                 } else {
+
+                 System.out.println("================");
+                 System.out.printf("Área em m²: %.3f\n" , area);    
+                 System.out.println("================");
+                 }
+         } 
+
+     void precificar (){
 
          double preco = this.area * this.valorMetroQuadrado;
-         System.out.printf("Valor do serviço foi de R$ %.2f cada\n" , preco); 
-  
+         System.out.printf("Valor do serviço foi de R$ %.2f cada\n" , preco);  
+         
   }      
  } 
