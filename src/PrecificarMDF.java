@@ -27,7 +27,7 @@
                  } else {
 
                  System.out.println("================");
-                 System.out.printf("Área em m²: %.3f\n" , area);    
+                 System.out.printf("Área em m²: %.3f\n" , this.area);    
                  System.out.println("================");
                  }
          } 
